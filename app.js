@@ -24,7 +24,7 @@ client.connect(mongoURI, {auto_reconect: true}, function(err, database){
 			console.log('Connected to MongoDB database server at:');
             console.log('\n\t%s\n', mongoURI);
             console.log(database.find);
-            app.get('/:slug', function(req, res){
+            app.get('/', function(req, res){
                 var slug =[req.params.slug][0]; // grab the page slug
                 console.log(slug);
                 var rData = {records: {}}; // wrap the data in a global object... (mustache starts from an object then parses)
