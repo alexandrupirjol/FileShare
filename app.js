@@ -39,5 +39,7 @@ client.connect(mongoURI, {auto_reconect: true}, function(err, database){
 var app = express();
 
 
-app.listen(5000);
-console.log('Listening on port 3000');
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
