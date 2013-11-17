@@ -25,7 +25,7 @@ client.connect(mongoURI, {auto_reconect: true}, function(err, database){
             console.log('\n\t%s\n', mongoURI);
             console.log(database.find);
             app.get('/', function(req, res){
-                var slug =[req.params.slug][0]; // grab the page slug
+                var slug =[req.params.slug][0] || 'index'; // grab the page slug
                 console.log(slug);
                 var rData = {records: {}}; // wrap the data in a global object... (mustache starts from an object then parses)
                 var page = fs.readFileSync('./templates/'+slug+'.html', "utf8"); // bring in the HTML file
